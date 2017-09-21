@@ -166,12 +166,12 @@
         <!-- /#page-wrapper -->
 
     </div>
-<!-- /#wrapper 
-		 <?PHP
-				 } ELSE { 
-            		INCLUDE($_request['OPT'] . ".PHP"); 
+<!-- /#wrapper -->
+		 <?php
+				 } else { 
+            		include($_REQUEST['opt'] . ".php"); 
                  } 
-          ?>-->
+          ?>
     <!-- jQuery Version 1.11.0 -->
     <script src="js/jquery-1.11.0.js"></script>
 
