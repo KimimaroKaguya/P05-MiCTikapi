@@ -13,6 +13,7 @@
  */
  include "include/class.mysqldb.php";
  include "include/config.inc.php";
+//  require_once __DIR__ . 'src/Facebook/autoload.php';
  unset($_SESSION['APIUser']);
  if(isset($_REQUEST['am_user'])){
 	 $user = $_REQUEST['am_user'];
