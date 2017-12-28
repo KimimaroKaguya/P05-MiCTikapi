@@ -145,28 +145,7 @@ if($month_com<=334){$rew="".($month_com-304)." พฤศจิกายน ".$ye
 if($month_com>=335){$rew="".($month_com-334)." ธันวาคม ".$year_com."".$time."";return  $rew;}}
 }}
 ############################################################################################################
-
-                                        $now_time = $API->comm("/system/clock/print");
-											 $now_date = $API->comm("/system/clock/print");
-											  $miktime=($now_time['0']['time']);
-											  $mikdate=($now_date['0']['date']);
-											 $hh_arr=substr("".$miktime."",-8,2);
-			                                 $mm_arr=substr("".$miktime."",-5,2);
-			                                 $ss_arr=substr("".$miktime."",-2);
-							$todaytime_con=(($hh_arr*3600) + ($mm_arr*60) + ($ss_arr));
-							// echo "".$todaytime_con."";
-							//  echo "".$mikdate."";
-							   $year_arr=substr("".$mikdate."",-4);
-                               $month_arr=substr("".$mikdate."",-11,3);
-                                $date_arr=substr("".$mikdate."",-7,2);
-								// echo "".$date_arr."";
-								 $month_arr_con=array("jan"=>(0),"feb"=>(31),"mar"=>(59),"apr"=>(90),"may"=>(120),"jun"=>(151),"jul"=>(181),"aug"=>(212),"sep"=>(243),"oct"=>(273),"nov"=>(304),"dec"=>(334));
-                               $month_num= ($month_arr_con[$month_arr]);
-							  // echo "".$month_num."";
-							$convert=(($year_arr-2000)*365+($month_num-1)+$date_arr);
-	                       $tocon=(($hh_arr*3600) + ($mm_arr*60) + ($ss_arr));
-	                      $convert_total=(($convert*86400)+$tocon);
-                          
+ผ
 #################################################################################################################
 
 

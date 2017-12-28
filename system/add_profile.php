@@ -10,10 +10,10 @@
 ?>
 
 <style type="text/css">
-<!--
+/* <!--
 .style1 {color: #0000FF}
 .style2 {color: #990000}}
--->
+--> */
 </style>
 <section class="content"> 
  

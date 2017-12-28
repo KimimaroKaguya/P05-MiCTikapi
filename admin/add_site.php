@@ -5,7 +5,8 @@
 		if($rows>0){
 			echo "<script language='javascript'>alert('Can not add site.')</script>";
 		}else{			
-		$sql_q="INSERT INTO mt_config(mt_id,mt_user,mt_pass,mt_ip,mt_name,mt_location,mt_mail,mt_tel,mt_gps) VALUES('','".$_REQUEST['user']."','".$_REQUEST['pass']."','".$_REQUEST['ip']."','".$_REQUEST['name']."','".$_REQUEST['location']."','".$_REQUEST['mail']."','".$_REQUEST['tel']."','".$_REQUEST['gps']."')";	
+		$sql_q="INSERT INTO mt_config(mt_id,mt_user,mt_pass,mt_ip,mt_name,mt_location,mt_mail,mt_tel,mt_gps) 
+        VALUES('','".$_REQUEST['user']."','".$_REQUEST['pass']."','".$_REQUEST['ip']."','".$_REQUEST['name']."','".$_REQUEST['location']."','".$_REQUEST['mail']."','".$_REQUEST['tel']."','".$_REQUEST['gps']."')";	
 	
 		$sql=mysql_query($sql_q);
 			

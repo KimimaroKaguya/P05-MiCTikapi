@@ -6,81 +6,85 @@
 
 	$secu=mysql_fetch_array(mysql_query("SELECT admin_pin FROM mt_config"));
 	$ad_pin=$secu['admin_pin'];
-	 $mdEmpty_pin=md5("000000000");
+	$mdEmpty_pin=md5("000000000");
 	
-		if(empty($ad_pin)||($ad_pin==$mdEmpty_pin)){
-		 //unset($_SESSION['EmpUser']);
- if(isset($_REQUEST['am_user'])){
-	 $user = $_REQUEST['am_user'];
-	 $pass = md5($_REQUEST['am_pass']);
-	 $conn = new mysqldb();
-	 $sql="SELECT * FROM am where am_user = '".$user."' and am_pass='".$pass."'";
-	 $query = $conn ->query($sql);
-	 $data = $conn->fetch($query);
-	 
-	 if($conn->num_rows()==0){
-		 echo "<script language='javascript'>alert('Username or Password incorrect')</script>";
-	 }else{
-		///unset($_SESSION['EmpUser']);
-		$_SESSION['APIUser']=$data->am_user;
-		$_SESSION['APIID']=$data->am_id;
-		$_SESSION['security']=$mdEmpty_pin;
-	  // echo "<meta http-equiv='refresh' content='0;url=security_con.php' />";
-	  echo "<meta http-equiv='refresh' content='0;url=index.php' />";  
-		
-		
-		exit(0);
-	 }
- }
- }else{
-/////////////////////////////////////////////////////////////////////////////////
- ///unset($_SESSION['EmpUser']);
- if(isset($_REQUEST['am_user'])){
-    $user = $_REQUEST['am_user'];
-    $pass = $_REQUEST['security_pin'];
-	$conn = new mysqldb();
-    $sql="SELECT * FROM am where am_user = '".$user."'";
-       $query = $conn ->query($sql);
-	   $data = $conn->fetch($query);
-	    
-     if($conn->num_rows()==0){
-		 echo "<script language='javascript'>alert('Username or Password incorrect')</script>";
-	 }else{
-	 ///unset($_SESSION['EmpUser']);
-	 $_SESSION['APIUser']=$data->am_user;
-	 $_SESSION['APIID']=$data->am_id;
-	$admin_secu=mysql_fetch_array(mysql_query("SELECT admin_pin FROM mt_config"));
-	$md_security_pin=md5($pass);
-    if($md_security_pin==$admin_secu['admin_pin']){
-	 $_SESSION['security']=$admin_secu['admin_pin'];
-     
-	echo "<meta http-equiv='refresh' content='0;url=index.php' />";
-	$error=$admin_secu['admin_pin'];
-	}else{
-		$query=mysql_query("SELECT * FROM mt_config WHERE customer_pin='".$pass."'");
-			$i=0;while($result=mysql_fetch_array($query)){
-			$i++;
-			$pass_cus=$result['customer_pin'];}
-	        if(!empty($pass_cus)){
-			$_SESSION['security']=$pass_cus;
-			echo "<meta http-equiv='refresh' content='0;url=index.php' />";
-			$error=$pass_cus;
-			}else{
-			$query=mysql_query("SELECT * FROM mt_config WHERE user_pin='".$pass."'");
-			$i=0;while($result=mysql_fetch_array($query)){
-			$i++;
-			$pass_user=$result['user_pin'];}
-	        if(!empty($pass_user)){
-		    $_SESSION['security']=$pass_user;
-			echo "<meta http-equiv='refresh' content='0;url=index.php' />";
-			$error=$pass_user;
+	if(empty($ad_pin)||($ad_pin==$mdEmpty_pin))
+	{
+	//unset($_SESSION['EmpUser']);
+		if(isset($_REQUEST['am_user']))
+		{
+			$user = $_REQUEST['am_user'];
+			$pass = md5($_REQUEST['am_pass']);
+			$conn = new mysqldb();
+			$sql="SELECT * FROM am where am_user = '".$user."' and am_pass='".$pass."'";
+			$query = $conn ->query($sql);
+			$data = $conn->fetch($query);
+				
+			if($conn->num_rows()==0)
+			{
+				echo "<script language='javascript'>alert('Username or Password incorrect')</script>";
+			}else
+			{
+				///unset($_SESSION['EmpUser']);
+				$_SESSION['APIUser']=$data->am_user;
+				$_SESSION['APIID']=$data->am_id;
+				$_SESSION['security']=$mdEmpty_pin;
+			// echo "<meta http-equiv='refresh' content='0;url=security_con.php' />";
+			echo "<meta http-equiv='refresh' content='0;url=index.php' />"; 
+				exit(0);
 			}
 		}
-	}//no admin
-	if(empty($error)){echo "<script language='javascript'>alert('Username or Password incorrect')</script>";}
-	}}
- /////////////////////////////////////////////////////////////////////////////////////////
- }
+	}
+	else
+	{
+		/////////////////////////////////////////////////////////////////////////////////
+		///unset($_SESSION['EmpUser']);
+		if(isset($_REQUEST['am_user'])){
+			$user = $_REQUEST['am_user'];
+			$pass = $_REQUEST['security_pin'];
+			$conn = new mysqldb();
+			$sql="SELECT * FROM am where am_user = '".$user."'";
+			$query = $conn ->query($sql);
+			$data = $conn->fetch($query);
+				
+			if($conn->num_rows()==0){
+				echo "<script language='javascript'>alert('Username or Password incorrect')</script>";
+			}else{
+			///unset($_SESSION['EmpUser']);
+			$_SESSION['APIUser']=$data->am_user;
+			$_SESSION['APIID']=$data->am_id;
+			$admin_secu=mysql_fetch_array(mysql_query("SELECT admin_pin FROM mt_config"));
+			$md_security_pin=md5($pass);
+			if($md_security_pin==$admin_secu['admin_pin']){
+			$_SESSION['security']=$admin_secu['admin_pin'];
+			
+			echo "<meta http-equiv='refresh' content='0;url=index.php' />";
+			$error=$admin_secu['admin_pin'];
+			}else{
+				$query=mysql_query("SELECT * FROM mt_config WHERE customer_pin='".$pass."'");
+					$i=0;while($result=mysql_fetch_array($query)){
+					$i++;
+					$pass_cus=$result['customer_pin'];}
+					if(!empty($pass_cus)){
+					$_SESSION['security']=$pass_cus;
+					echo "<meta http-equiv='refresh' content='0;url=index.php' />";
+					$error=$pass_cus;
+					}else{
+					$query=mysql_query("SELECT * FROM mt_config WHERE user_pin='".$pass."'");
+					$i=0;while($result=mysql_fetch_array($query)){
+					$i++;
+					$pass_user=$result['user_pin'];}
+					if(!empty($pass_user)){
+					$_SESSION['security']=$pass_user;
+					echo "<meta http-equiv='refresh' content='0;url=index.php' />";
+					$error=$pass_user;
+					}
+				}
+			}//no admin
+			if(empty($error)){echo "<script language='javascript'>alert('Username or Password incorrect')</script>";}
+			}}
+	/////////////////////////////////////////////////////////////////////////////////////////
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,7 +120,7 @@
     </head>
 
     <body>
-
+		<?php  echo $sql; ?>
         <!-- Top content -->
         <div class="top-content">
         	

@@ -27,16 +27,25 @@
     </thead>
 	 <?php
 
-	 $secu=mysql_fetch_array(mysql_query("SELECT admin_pin FROM mt_config"));
+	$secu=mysql_fetch_array(mysql_query("SELECT admin_pin FROM mt_config"));
 	$admin_pin=$secu['admin_pin'];
 
-if(!empty($admin_pin)&&($admin_pin==$_SESSION['security'])){
-	$session_login="admin_pin";}else{
-                                             if($secom_v2==$_SESSION['security']){
-		$session_login="customer_pin";}else if($secom_v3==$_SESSION['security']){
-		$session_login="user_pin";}		
-		}
-   
+    if(!empty($admin_pin)&&($admin_pin==$_SESSION['security']))
+    {
+        $session_login="admin_pin";
+    }
+    else
+    {
+        if($secom_v2==$_SESSION['security'])
+        {
+            $session_login="customer_pin";
+        }
+        else if($secom_v3==$_SESSION['security'])
+        {
+            $session_login="user_pin";
+        }		
+    }
+
 $sql=mysql_query("SELECT * FROM mt_config WHERE ".$session_login."='".$_SESSION['security']."'");
 
 

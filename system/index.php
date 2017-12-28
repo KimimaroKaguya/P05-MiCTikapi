@@ -314,131 +314,104 @@ header("Refresh: 1800; URL='../admin/login.php'");
   </aside>
 		
    <div class="content-wrapper"> 
-
-     <?php
-// zone add[from]
-
-if(($_GET[page]=="genuser")||($_GET[page]=="hgu")){include("gen_user.php");}
-else if(($_GET[page]=="manuser")||($_GET[page]=="hau")){include("adduser.php");}
-else if(($_GET[page]=="add_profile")||($_GET[page]=="hap")){include("add_profile.php");}
-else if(($_GET[page]=="add_usermanager_profile")||($_GET[page]=="haump")){include("add_usermanager_profile.php");}
-else if(($_GET[page]=="add_macprofile")||($_GET[page]=="hamp")){include("add_macprofile.php");}
-else if($_GET[page]=="upload_csv"){include("../csv/upload_csv.php");}
-else if(($_GET[page]=="Import_Exel")||($_GET[page]=="hiu")){include("Import_Exel.php");}
-else if(($_GET[page]=="add_pppoe")||($_GET[page]=="pau")){include("pppoe/add_pppoe.php");}
-else if(($_GET[page]=="gen_pppoe")||($_GET[page]=="pgu")){include("pppoe/gen_pppoe.php");}
-else if(($_GET[page]=="add_pppoe_profile")||($_GET[page]=="pap")){include("pppoe/add_pppoe_profile.php");}
-else if(($_GET[page]=="pppoe_Import_Exel")||($_GET[page]=="piu")){include("pppoe/pppoe_Import_Exel.php");}
-else if(($_GET[page]=="add_usermanager")||($_GET[page]=="haum")){include("add_usermanager.php");}
-else if(($_GET[page]=="gen_usermanager")||($_GET[page]=="hgum")){include("gen_usermanager.php");}
-else if(($_GET[page]=="import_usermanager")||($_GET[page]=="hium")){include("import_usermanager.php");}
-else if($_GET[page]=="hotspot_transfer_profile"){include("hotspot_transfer_profile.php");}
-else if($_GET[page]=="pppoe_transfer_profile"){include("pppoe/pppoe_transfer_profile.php");}
-
-
-
-
-
-// zone list
-else if(($_GET[page]=="listuser")||($_GET[page]=="hdbu")){include("listuser.php");}
-else if(($_GET[page]=="mikrotikuser")||($_GET[page]=="hmu")){include("mikrotikuser.php");}
-else if(($_GET[page]=="total_money")||($_GET[page]=="hm")){include("total_money.php");}
-else if(($_GET[page]=="pppoe_total_money")||($_GET[page]=="pm")){include("pppoe/pppoe_total_money.php");}
-else if($_GET[page]=="date_list"){include("date_list.php");}
-else if($_GET[page]=="pppoe_date_list"){include("pppoe/pppoe_date_list.php");}
-else if($_GET[page]=="month_list"){include("month_list.php");}
-else if($_GET[page]=="pppoe_month_list"){include("pppoe/pppoe_month_list.php");}
-else if(($_GET[page]=="money_month")||($_GET[page]=="hmm")){include("money_month.php");}
-//else if(($_GET[page]=="money_year")||($_GET[page]=="hmy")){include("money_year.php");}
-else if(($_GET[page]=="pppoe_money_month")||($_GET[page]=="pmm")){include("pppoe/pppoe_money_month.php");}
-else if($_GET[page]=="user"){include("user.php");}
-else if(($_GET[page]=="profilelist")||($_GET[page]=="hp")){include("profile_list.php");}
-//else if($_GET[page]=="profileall"){include("profileall.php");}
-else if(($_GET[page]=="useronline")||($_GET[page]=="huo")){include("useronline.php");}
-//else if(($_GET[page]=="hosts_online")||($_GET[page]=="hho")){include("hosts_online.php");}
-else if(($_GET[page]=="hostonline")||($_GET[page]=="hc")){include("hostonline.php");}
-else if(($_GET[page]=="interface")||($_GET[page]=="if")){include("interface.php");}
-else if($_GET[page]=="dhcp"){include("dhcp.php");}
-//else if($_GET[page]=="mikrotik_user"){include("mikrotikuserall.php");}
-else if(($_GET[page]=="Access_Points_online")||($_GET[page]=="ap")){include("ap_online.php");}
-else if(($_GET[page]=="pppoe_dtb_user")||($_GET[page]=="pdbu")){include("pppoe/pppoe_dtb_user.php");}
-else if($_GET[page]=="pppoe_user"){include("pppoe/pppoe_user.php");}
-else if(($_GET[page]=="pppoe_mik_user")||($_GET[page]=="pmu")){include("pppoe/pppoe_mikrotikuser.php");}
-else if(($_GET[page]=="pppoe_profile_list")||($_GET[page]=="pp")){include("pppoe/pppoe_profile_list.php");}
-else if(($_GET[page]=="pppoe_online")||($_GET[page]=="po")){include("pppoe/pppoe_online.php");}
-else if(($_GET[page]=="script_hotspot")||($_GET[page]=="has")){include("script_hotspot.php");}
-else if(($_GET[page]=="script_pppoe")||($_GET[page]=="pas")){include("pppoe/script_pppoe.php");}
-else if(($_GET[page]=="usermanager")||($_GET[page]=="hum")){include("usermanager.php");}
-else if(($_GET[page]=="all_data_users")||($_GET[page]=="hadbu")){include("all_data_users.php");}
-else if(($_GET[page]=="pppoe_all_data_users")||($_GET[page]=="padbu")){include("pppoe/pppoe_all_data_users.php");}
-else if(($_GET[page]=="card")||($_GET[page]=="hc")){include("card.php");}
-else if(($_GET[page]=="pppoe_card")||($_GET[page]=="pc")){include("pppoe/pppoe_card.php");}
-//else if(($_GET[page]=="pppoe_money_year")||($_GET[page]=="pmy")){include("pppoe/pppoe_money_year.php");}
-else if($_GET[page]=="test"){include("test.php");}
-else if($_GET[page]=="test2"){include("test2.php");}
-
-
-
-
-
-// zone add[process]
-else if($_GET[page]=="con_adduser_process"){include("../process/con_adduser.php");}
-else if($_GET[page]=="con_genuser_process"){include("../process/con_genuser.php");}
-//else if($_GET[page]=="con_editprofile_process"){include("../process/con_editprofile.php");}
-else if($_GET[page]=="con_addprofile_process"){include("../process/con_addprofile.php");}
-else if($_GET[page]=="con_add_usermanager_profile_process"){include("../process/con_add_usermanager_profile.php");}
-else if($_GET[page]=="con_addmacprofile_process"){include("../process/con_addmacprofile.php");}
-else if($_GET[page]=="con_addpppoe_process"){include("../process/con_addpppoe.php");}
-else if($_GET[page]=="con_genuser_pppoe_process"){include("../process/con_genuser_pppoe.php");}
-else if($_GET[page]=="con_addpppoe_profile_process"){include("../process/con_addpppoe_profile.php");}
-//else if($_GET[page]=="con_editpppoe_profile_process"){include("../process/con_editpppoe_profile.php");}
-else if($_GET[page]=="disable"){include("../process/disable.php");}
-else if($_GET[page]=="enable"){include("../process/enable.php");}
-else if($_GET[page]=="add_script_process"){include("../process/add_script.php");}
-else if($_GET[page]=="add_pppoe_script_process"){include("../process/add_pppoe_script.php");}
-//else if($_GET[page]=="pppoe_disable_process"){include("../process/pppoe_disable.php");}
-//else if($_GET[page]=="pppoe_enable_process"){include("../process/pppoe_enable.php");}
-else if($_GET[page]=="con_add_usermanager_process"){include("../process/con_add_usermanager.php");}
-else if($_GET[page]=="con_gen_usermanager_process"){include("../process/con_gen_usermanager.php");}
-
-
-
-
-// zone edit 
-//else if($_GET[page]=="editserver"){include("edit_serv.php");}
-else if($_GET[page]=="edituser"){include("edit_user.php");}
-else if($_GET[page]=="edit_all"){include("edit_all.php");}
-else if($_GET[page]=="pppoe_edit_all"){include("pppoe/pppoe_edit_all.php");}
-else if($_GET[page]=="editmikrotikuser"){include("edit_mikrotikuser.php");}
-else if($_GET[page]=="editprofile"){include("edit_profile.php");}
-else if($_GET[page]=="pppoe_edituser"){include("pppoe/pppoe_edit_user.php");}
-else if($_GET[page]=="edit_pppoe_mik_user"){include("pppoe/edit_pppoe_mikrotikuser.php");}
-else if($_GET[page]=="pppoe_edit_profile"){include("pppoe/pppoe_edit_profile.php");}
-else if($_GET[page]=="editusermanager"){include("edit_usermanager.php");}
-else if($_GET[page]=="edit_card"){include("edit_card.php");}
-else if($_GET[page]=="edit_pppoe_card"){include("pppoe/edit_pppoe_card.php");}
-
-
-// zone delete
-
-else if($_GET[page]=="delete"){include("../process/delete.php");}
-else if($_GET[page]=="host_kick"){include("../process/host_kick.php");}
-else if($_GET[page]=="kick"){include("../process/kick.php");}
-else if($_GET[page]=="pppoe_online_kick"){include("../process/pppoe_online_kick.php");}
-
-// default not value get page or welcome login
-else{include("dashboard.php");}?><!-- end last else -->
-
+<?php
+    // zone add[from]
+    if(($_GET[page]=="genuser")||($_GET[page]=="hgu")){include("gen_user.php");}
+    else if(($_GET[page]=="manuser")||($_GET[page]=="hau")){include("adduser.php");}
+    else if(($_GET[page]=="add_profile")||($_GET[page]=="hap")){include("add_profile.php");}
+    else if(($_GET[page]=="add_usermanager_profile")||($_GET[page]=="haump")){include("add_usermanager_profile.php");}
+    else if(($_GET[page]=="add_macprofile")||($_GET[page]=="hamp")){include("add_macprofile.php");}
+    else if($_GET[page]=="upload_csv"){include("../csv/upload_csv.php");}
+    else if(($_GET[page]=="Import_Exel")||($_GET[page]=="hiu")){include("Import_Exel.php");}
+    else if(($_GET[page]=="add_pppoe")||($_GET[page]=="pau")){include("pppoe/add_pppoe.php");}
+    else if(($_GET[page]=="gen_pppoe")||($_GET[page]=="pgu")){include("pppoe/gen_pppoe.php");}
+    else if(($_GET[page]=="add_pppoe_profile")||($_GET[page]=="pap")){include("pppoe/add_pppoe_profile.php");}
+    else if(($_GET[page]=="pppoe_Import_Exel")||($_GET[page]=="piu")){include("pppoe/pppoe_Import_Exel.php");}
+    else if(($_GET[page]=="add_usermanager")||($_GET[page]=="haum")){include("add_usermanager.php");}
+    else if(($_GET[page]=="gen_usermanager")||($_GET[page]=="hgum")){include("gen_usermanager.php");}
+    else if(($_GET[page]=="import_usermanager")||($_GET[page]=="hium")){include("import_usermanager.php");}
+    else if($_GET[page]=="hotspot_transfer_profile"){include("hotspot_transfer_profile.php");}
+    else if($_GET[page]=="pppoe_transfer_profile"){include("pppoe/pppoe_transfer_profile.php");}
+    // zone list
+    else if(($_GET[page]=="listuser")||($_GET[page]=="hdbu")){include("listuser.php");}
+    else if(($_GET[page]=="mikrotikuser")||($_GET[page]=="hmu")){include("mikrotikuser.php");}
+    else if(($_GET[page]=="total_money")||($_GET[page]=="hm")){include("total_money.php");}
+    else if(($_GET[page]=="pppoe_total_money")||($_GET[page]=="pm")){include("pppoe/pppoe_total_money.php");}
+    else if($_GET[page]=="date_list"){include("date_list.php");}
+    else if($_GET[page]=="pppoe_date_list"){include("pppoe/pppoe_date_list.php");}
+    else if($_GET[page]=="month_list"){include("month_list.php");}
+    else if($_GET[page]=="pppoe_month_list"){include("pppoe/pppoe_month_list.php");}
+    else if(($_GET[page]=="money_month")||($_GET[page]=="hmm")){include("money_month.php");}
+    //else if(($_GET[page]=="money_year")||($_GET[page]=="hmy")){include("money_year.php");}
+    else if(($_GET[page]=="pppoe_money_month")||($_GET[page]=="pmm")){include("pppoe/pppoe_money_month.php");}
+    else if($_GET[page]=="user"){include("user.php");}
+    else if(($_GET[page]=="profilelist")||($_GET[page]=="hp")){include("profile_list.php");}
+    //else if($_GET[page]=="profileall"){include("profileall.php");}
+    else if(($_GET[page]=="useronline")||($_GET[page]=="huo")){include("useronline.php");}
+    //else if(($_GET[page]=="hosts_online")||($_GET[page]=="hho")){include("hosts_online.php");}
+    else if(($_GET[page]=="hostonline")||($_GET[page]=="hc")){include("hostonline.php");}
+    else if(($_GET[page]=="interface")||($_GET[page]=="if")){include("interface.php");}
+    else if($_GET[page]=="dhcp"){include("dhcp.php");}
+    //else if($_GET[page]=="mikrotik_user"){include("mikrotikuserall.php");}
+    else if(($_GET[page]=="Access_Points_online")||($_GET[page]=="ap")){include("ap_online.php");}
+    else if(($_GET[page]=="pppoe_dtb_user")||($_GET[page]=="pdbu")){include("pppoe/pppoe_dtb_user.php");}
+    else if($_GET[page]=="pppoe_user"){include("pppoe/pppoe_user.php");}
+    else if(($_GET[page]=="pppoe_mik_user")||($_GET[page]=="pmu")){include("pppoe/pppoe_mikrotikuser.php");}
+    else if(($_GET[page]=="pppoe_profile_list")||($_GET[page]=="pp")){include("pppoe/pppoe_profile_list.php");}
+    else if(($_GET[page]=="pppoe_online")||($_GET[page]=="po")){include("pppoe/pppoe_online.php");}
+    else if(($_GET[page]=="script_hotspot")||($_GET[page]=="has")){include("script_hotspot.php");}
+    else if(($_GET[page]=="script_pppoe")||($_GET[page]=="pas")){include("pppoe/script_pppoe.php");}
+    else if(($_GET[page]=="usermanager")||($_GET[page]=="hum")){include("usermanager.php");}
+    else if(($_GET[page]=="all_data_users")||($_GET[page]=="hadbu")){include("all_data_users.php");}
+    else if(($_GET[page]=="pppoe_all_data_users")||($_GET[page]=="padbu")){include("pppoe/pppoe_all_data_users.php");}
+    else if(($_GET[page]=="card")||($_GET[page]=="hc")){include("card.php");}
+    else if(($_GET[page]=="pppoe_card")||($_GET[page]=="pc")){include("pppoe/pppoe_card.php");}
+    //else if(($_GET[page]=="pppoe_money_year")||($_GET[page]=="pmy")){include("pppoe/pppoe_money_year.php");}
+    else if($_GET[page]=="test"){include("test.php");}
+    else if($_GET[page]=="test2"){include("test2.php");}
+    // zone add[process]
+    else if($_GET[page]=="con_adduser_process"){include("../process/con_adduser.php");}
+    else if($_GET[page]=="con_genuser_process"){include("../process/con_genuser.php");}
+    //else if($_GET[page]=="con_editprofile_process"){include("../process/con_editprofile.php");}
+    else if($_GET[page]=="con_addprofile_process"){include("../process/con_addprofile.php");}
+    else if($_GET[page]=="con_add_usermanager_profile_process"){include("../process/con_add_usermanager_profile.php");}
+    else if($_GET[page]=="con_addmacprofile_process"){include("../process/con_addmacprofile.php");}
+    else if($_GET[page]=="con_addpppoe_process"){include("../process/con_addpppoe.php");}
+    else if($_GET[page]=="con_genuser_pppoe_process"){include("../process/con_genuser_pppoe.php");}
+    else if($_GET[page]=="con_addpppoe_profile_process"){include("../process/con_addpppoe_profile.php");}
+    //else if($_GET[page]=="con_editpppoe_profile_process"){include("../process/con_editpppoe_profile.php");}
+    else if($_GET[page]=="disable"){include("../process/disable.php");}
+    else if($_GET[page]=="enable"){include("../process/enable.php");}
+    else if($_GET[page]=="add_script_process"){include("../process/add_script.php");}
+    else if($_GET[page]=="add_pppoe_script_process"){include("../process/add_pppoe_script.php");}
+    //else if($_GET[page]=="pppoe_disable_process"){include("../process/pppoe_disable.php");}
+    //else if($_GET[page]=="pppoe_enable_process"){include("../process/pppoe_enable.php");}
+    else if($_GET[page]=="con_add_usermanager_process"){include("../process/con_add_usermanager.php");}
+    else if($_GET[page]=="con_gen_usermanager_process"){include("../process/con_gen_usermanager.php");}
+    // zone edit 
+    //else if($_GET[page]=="editserver"){include("edit_serv.php");}
+    else if($_GET[page]=="edituser"){include("edit_user.php");}
+    else if($_GET[page]=="edit_all"){include("edit_all.php");}
+    else if($_GET[page]=="pppoe_edit_all"){include("pppoe/pppoe_edit_all.php");}
+    else if($_GET[page]=="editmikrotikuser"){include("edit_mikrotikuser.php");}
+    else if($_GET[page]=="editprofile"){include("edit_profile.php");}
+    else if($_GET[page]=="pppoe_edituser"){include("pppoe/pppoe_edit_user.php");}
+    else if($_GET[page]=="edit_pppoe_mik_user"){include("pppoe/edit_pppoe_mikrotikuser.php");}
+    else if($_GET[page]=="pppoe_edit_profile"){include("pppoe/pppoe_edit_profile.php");}
+    else if($_GET[page]=="editusermanager"){include("edit_usermanager.php");}
+    else if($_GET[page]=="edit_card"){include("edit_card.php");}
+    else if($_GET[page]=="edit_pppoe_card"){include("pppoe/edit_pppoe_card.php");}
+    // zone delete
+    else if($_GET[page]=="delete"){include("../process/delete.php");}
+    else if($_GET[page]=="host_kick"){include("../process/host_kick.php");}
+    else if($_GET[page]=="kick"){include("../process/kick.php");}
+    else if($_GET[page]=="pppoe_online_kick"){include("../process/pppoe_online_kick.php");}
+    // default not value get page or welcome login
+    else{include("dashboard.php");}?><!-- end last else -->
  </div>
-
-		
-
-		 
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    
+    <!-- Create the tabs -->    
     <!-- Tab panes -->
     <div class="tab-content">
       <!-- Home tab content -->
